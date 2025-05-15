@@ -1,1 +1,1 @@
-for icons - "https://www.npmjs.com/package/react-icons" ( Ctrl + Click )
+for icons - "https://react-icons.github.io/react-icons/" ( Ctrl + Click )
