@@ -1,10 +1,13 @@
 import React from "react";
 import "./App.css";
+import Task from "./Components/Task/Task";
+
+
 
 function App() {
   return (
     <>
-      <h1 class="text-3xl font-bold underline text-red-400">Hello world!</h1>
+      <Task  />
     </>
   );
 }
