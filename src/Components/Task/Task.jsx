@@ -1,11 +1,8 @@
 import React from 'react';
-import taskData from '../../MockData/Task.json';
-import { useState } from 'react';
-import AddTask from './AddTask';
-import DeleteTask from './DeleteTask';
 import { useNavigate } from 'react-router-dom';
 
-const Task = ({ role }) => {
+const Task = ({ role, tasks, deleteTask }) => {
+    
     
     const maxDescriptionLength = 70;
     // Description height 
@@ -17,6 +14,8 @@ const Task = ({ role }) => {
     };
 
     const navigate = useNavigate();
+
+    
 
     return (
         <div className="task flex flex-col items-center justify-center min-h-screen bg-white  h-auto  ">
@@ -31,17 +30,18 @@ const Task = ({ role }) => {
                             </div>
                             <div className='flex flex-wrap justify-center items-center'>
                                 <button className='bg-blue-500 text-white p-2 rounded-lg m-2 w-40' onClick={() => navigate("./AddTask")} >Add Task</button>
-                                <button className='bg-blue-500 text-white p-2 rounded-lg m-2 w-40' onClick={() => navigate("./DeleteTask")}>Delete Task</button>
+                                {/* <button className='bg-blue-500 text-white p-2 rounded-lg m-2 w-40' onClick={() => navigate("./AddTask")} >Delete Task</button> */}
+                                {/* Removed Delete Task navigation button */}
                             </div>
                         </div>
                         {/* task items   admin */}
                         {role === 'admin' && (
                             <div className='overflow-y-scroll max-h-150 flex flex-col overflow-x-hidden w-full scrollbar-hide scrollbar-track-gray-300 overflow-transparent bg-purple-200 '>
-                                {taskData.map((task, index) => (
+                                {tasks.map((task, index) => (
                                     <div key={index} className='task-item bg-purple-300 m-2 w-full p-2 rounded-lg shadow-lg'>
                                         <div className='flex justify-between items-center flex-wrap'>
                                             <div className='flex flex-col p-2'>
-                                                <h2 className='text-xl font-bold'>Task {task['Task Name']}</h2>
+                                                <h2 className='text-xl font-bold'> {task['Task Name']}</h2>
                                                 <p>{truncateDescription(task.Deacription)}</p>
                                             </div>
                                             <div className='flex flex-wrap items-center md:gap-5 gap-2'>
@@ -58,7 +58,14 @@ const Task = ({ role }) => {
                                                         className="w-full h-full object-cover "
                                                     />
                                                 </div>
+                                                <button
+                                                    className="bg-red-500 text-white p-2 rounded-lg m-2"
+                                                    onClick={() => deleteTask(index)}
+                                                >
+                                                    Delete
+                                                </button>
                                             </div>
+                                            
                                         </div>
 
                                     </div>
@@ -67,11 +74,11 @@ const Task = ({ role }) => {
                         )}
                         {role === 'user' && (
                            <div className='overflow-y-scroll max-h-150 flex flex-col overflow-x-hidden w-full scrollbar-hide scrollbar-track-gray-300 overflow-transparent bg-purple-200 '>
-                                {taskData.map((task, index) => (
+                                {tasks.map((task, index) => (
                                     <div key={index} className='task-item bg-purple-300 m-2 w-full p-2 rounded-lg shadow-lg'>
                                         <div className='flex justify-between items-center flex-wrap'>
                                             <div className='flex flex-col p-2'>
-                                                <h2 className='text-xl font-bold'>Task {task['Task Name']}</h2>
+                                                <h2 className='text-xl font-bold'> {task['Task Name']}</h2>
                                                 <p>{truncateDescription(task.Deacription)}</p>
                                             </div>
                                             <div className='flex flex-wrap items-center md:gap-5 gap-2'>
@@ -90,7 +97,6 @@ const Task = ({ role }) => {
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
                                 ))}
                             </div>
