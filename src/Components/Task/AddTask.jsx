@@ -33,10 +33,21 @@ export default function AddTask({ addTask }) {
     };
 
     return (
-        <div className='flex items-center justify-center bg-purple-500 p-4 min-h-screen'>
-            <form onSubmit={handleSubmit} className='flex flex-col bg-purple-100 p-6 rounded-lg w-full max-w-4xl'>
+        <div className='flex items-center justify-center bg-purple-500 p-4 min-h-screen '>
+            
+            <form onSubmit={handleSubmit} className='flex relative flex-col bg-purple-100 p-6 rounded-lg w-full max-w-4xl'>
+                
                 <div className='flex flex-col p-5 items-center'>
                     <h1 className='text-3xl font-bold text-center'>Add Task</h1>
+                    <div className='absolute top-4 right-4'>
+                    <button
+                onClick={() => navigate('/')}
+                className='absolute top-4 right-4 text-3xl font-bold text-gray-700 hover:text-gray-900'
+                aria-label="Close Add Task"
+            >
+                &times;
+            </button>
+            </div>
                 </div>
                 <div className='flex flex-col space-y-4'>
                     <div className='flex flex-col sm:flex-row sm:space-x-4'>
@@ -161,7 +172,9 @@ export default function AddTask({ addTask }) {
                         </button>
                     </div>
                 </div>
+
+
             </form>
         </div>
-    );
+    )
 }

@@ -15,8 +15,6 @@ const Task = ({ role, tasks, deleteTask }) => {
 
     const navigate = useNavigate();
 
-    
-
     return (
         <div className="task flex flex-col items-center justify-center min-h-screen bg-white  h-auto  ">
             <div className='container bg-purple-200 w-full p-2'>
@@ -29,16 +27,14 @@ const Task = ({ role, tasks, deleteTask }) => {
                                 <h1 className='text-2xl font-bold text-center m-2'>Task List</h1>
                             </div>
                             <div className='flex flex-wrap justify-center items-center'>
-                                <button className='bg-blue-500 text-white p-2 rounded-lg m-2 w-40' onClick={() => navigate("./AddTask")} >Add Task</button>
-                                {/* <button className='bg-blue-500 text-white p-2 rounded-lg m-2 w-40' onClick={() => navigate("./AddTask")} >Delete Task</button> */}
-                                {/* Removed Delete Task navigation button */}
+                                <button className='bg-blue-500 text-white p-2 rounded-lg m-2 w-40 hover:shadow-lg hover:text-lg font-semibold ' onClick={() => navigate("./AddTask")} >Add Task</button>
                             </div>
                         </div>
                         {/* task items   admin */}
                         {role === 'admin' && (
                             <div className='overflow-y-scroll max-h-150 flex flex-col overflow-x-hidden w-full scrollbar-hide scrollbar-track-gray-300 overflow-transparent bg-purple-200 '>
                                 {tasks.map((task, index) => (
-                                    <div key={index} className='task-item bg-purple-300 m-2 w-full p-2 rounded-lg shadow-lg'>
+                                    <div key={index} className='task-item bg-purple-100 hover:bg-purple-300 m-2 w-full p-2 rounded-lg shadow-lg'>
                                         <div className='flex justify-between items-center flex-wrap'>
                                             <div className='flex flex-col p-2'>
                                                 <h2 className='text-xl font-bold'> {task['Task Name']}</h2>
@@ -53,13 +49,13 @@ const Task = ({ role, tasks, deleteTask }) => {
                                                 </div>
                                                 <div className="w-12 h-12 mx-2 m-2 rounded-full overflow-hidden border-2 border-white shadow-lg ">
                                                     <img
-                                                        src="/avatar.jpg" // replace with your actual image path
+                                                        src={task.Avatar} // replace with your actual image path
                                                         alt="User Avatar"
                                                         className="w-full h-full object-cover "
                                                     />
                                                 </div>
                                                 <button
-                                                    className="bg-red-500 text-white p-2 rounded-lg m-2"
+                                                    className="bg-red-500 text-white p-2 rounded-lg m-2  px-5 py-2  hover:shadow-lg "
                                                     onClick={() => deleteTask(index)}
                                                 >
                                                     Delete
@@ -90,7 +86,7 @@ const Task = ({ role, tasks, deleteTask }) => {
                                                 </div>
                                                 <div className="w-12 h-12 mx-2 m-2 rounded-full overflow-hidden border-2 border-white shadow-lg ">
                                                     <img
-                                                        src="/avatar.jpg" // replace with your actual image path
+                                                        src={task.Avatar} // replace with your actual image path
                                                         alt="User Avatar"
                                                         className="w-full h-full object-cover "
                                                     />

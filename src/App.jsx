@@ -4,6 +4,7 @@ import "./App.css";
 import Task from "./Components/Task/Task";
 import AddTask from "./Components/Task/AddTask";
 import taskData from "./MockData/Task.json";
+import user from "./MockData/user.json";
 
 const role = "admin";
 
@@ -24,7 +25,7 @@ function App() {
         <Routes>
           {/* Task  */}
           <Route path="/" element={<Task role={role} tasks={tasks} deleteTask={deleteTask} />} />
-          <Route path="/AddTask" element={<AddTask addTask={addTask} />} />
+          <Route path="/AddTask" element={<AddTask addTask={addTask} user={user} />} />
         </Routes>
       </Router>
     </>
