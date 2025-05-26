@@ -2,8 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Task = ({ role, tasks, deleteTask }) => {
-    
-    
+
+
     const maxDescriptionLength = 70;
     // Description height 
     const truncateDescription = (description) => {
@@ -61,7 +61,7 @@ const Task = ({ role, tasks, deleteTask }) => {
                                                     Delete
                                                 </button>
                                             </div>
-                                            
+
                                         </div>
 
                                     </div>
@@ -69,9 +69,9 @@ const Task = ({ role, tasks, deleteTask }) => {
                             </div>
                         )}
                         {role === 'user' && (
-                           <div className='overflow-y-scroll max-h-150 flex flex-col overflow-x-hidden w-full scrollbar-hide scrollbar-track-gray-300 overflow-transparent bg-purple-200 '>
+                            <div className='overflow-y-scroll max-h-150 flex flex-col overflow-x-hidden w-full scrollbar-hide scrollbar-track-gray-300 overflow-transparent bg-purple-200 '>
                                 {tasks.map((task, index) => (
-                                    <div key={index} className='task-item bg-purple-300 m-2 w-full p-2 rounded-lg shadow-lg'>
+                                    <div key={index} className='task-item bg-purple-100 hover:bg-purple-300 m-2 w-full p-2 rounded-lg shadow-lg'>
                                         <div className='flex justify-between items-center flex-wrap'>
                                             <div className='flex flex-col p-2'>
                                                 <h2 className='text-xl font-bold'> {task['Task Name']}</h2>

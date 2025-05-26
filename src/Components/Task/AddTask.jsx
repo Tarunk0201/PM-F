@@ -39,6 +39,7 @@ export default function AddTask({ addTask }) {
                 
                 <div className='flex flex-col p-5 items-center'>
                     <h1 className='text-3xl font-bold text-center'>Add Task</h1>
+                    {/* cross btn  */}
                     <div className='absolute top-4 right-4'>
                     <button
                 onClick={() => navigate('/')}
