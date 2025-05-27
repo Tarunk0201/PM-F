@@ -2,7 +2,6 @@ import React from 'react';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import mockProjects from '../../data/mockProjects';
 import { X, Trash2, Pencil } from 'lucide-react';
-
 const ProjectDetails = ({ role, currentUser }) => {
   const navigate = useNavigate();
   const { id } = useParams();
