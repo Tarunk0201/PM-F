@@ -1,10 +1,21 @@
-import React from "react";
-import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import Logoin from "./components/Auth/Login";
+import Signup from "./components/Auth/Signup";
+import Dashboard from "./components/Dashboard";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <>
-      <h1 class="text-3xl font-bold underline">Hello world!</h1>
+      <Navbar />
+      {/* <Logoin />
+      <Signup />
+      <Dashboard /> */}
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/login" element={<Logoin />} />
+        <Route path="/register" element={<Signup />} />
+      </Routes>
     </>
   );
 }
